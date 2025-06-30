@@ -272,7 +272,7 @@ def generate_openrouter_answer(project_id, user_question):
     prompt = build_context_prompt(project, user_question)
 
     headers = {
-        "Authorization": "Bearer {settings.openrouterkey}}",
+        "Authorization": f"Bearer {settings.openrouterkey}",
         "Referer": "https://aisearchlibrary.in",
         "X-Title": "Project Chatbot",
         "Content-Type": "application/json"
