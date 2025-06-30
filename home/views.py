@@ -263,7 +263,7 @@ Answer:"""
 import requests
 from .models import Project
 
-]
+
 import tanish.settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
