@@ -45,6 +45,10 @@ STORAGES = {
         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
     },
 }
+# settings.py
+
+# Remove or modify X-Frame-Options
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 # Application definition
 
