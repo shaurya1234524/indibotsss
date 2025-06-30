@@ -303,19 +303,24 @@ def ask_bot(request, project_id):
         question = request.POST.get('question')
         answer = generate_openrouter_answer(project_id, question)
         return JsonResponse({'answer': answer})
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
-from .models import Project
+
 
 @login_required
 def chatbot_view(request, project_id):
     project = get_object_or_404(Project, pk=project_id, user=request.user)
     return render(request, 'chatbot.html', {'project': project})
+from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from home.models import Project
+
 def embed_chatbot(request):
     bot_key = request.GET.get('key')
-    project = get_object_or_404(Project, bot_key=bot_key)
+    if not bot_key:
+        raise Http404("Missing 'key' parameter in URL")
 
+    project = get_object_or_404(Project, bot_key=bot_key)
     return render(request, 'embed_chatbot.html', {'project': project})
+
 @login_required
 def project_summary_view(request, pk):
     project = get_object_or_404(Project, pk=pk, user=request.user)
