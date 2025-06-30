@@ -76,40 +76,50 @@
     </form>
   </div>
 
-  <script>
-    const chatForm = document.getElementById('chat-form');
-    const chatInput = document.getElementById('chat-input');
-    const chatBox = document.getElementById('chat-box');
+ <script>
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const chatBox = document.getElementById('chat-box');
 
-    chatForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const message = chatInput.value.trim();
-      if (!message) return;
+  chatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
 
-      const userBubble = document.createElement('div');
-      userBubble.className = 'chat-bubble user';
-      userBubble.textContent = message;
-      chatBox.appendChild(userBubble);
+    // Show user message
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble user';
+    userBubble.textContent = message;
+    chatBox.appendChild(userBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    chatInput.value = '';
+
+    // Show "Typing..." bubble
+    const botBubble = document.createElement('div');
+    botBubble.className = 'chat-bubble bot';
+    botBubble.textContent = "Typing...";
+    chatBox.appendChild(botBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Send message to backend
+    fetch(`/ask_bot/{{ project.id }}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({ question: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+      botBubble.textContent = data.answer || "⚠️ No response from the bot.";
       chatBox.scrollTop = chatBox.scrollHeight;
-      chatInput.value = '';
-
-      fetch("{% url 'ask_bot' project.id %}", {
-        method: 'POST',
-        headers: {
-          'X-CSRFToken': '{{ csrf_token }}',
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({ question: message })
-      })
-      .then(res => res.json())
-      .then(data => {
-        const botBubble = document.createElement('div');
-        botBubble.className = 'chat-bubble bot';
-        botBubble.textContent = data.answer;
-        chatBox.appendChild(botBubble);
-        chatBox.scrollTop = chatBox.scrollHeight;
-      });
+    })
+    .catch(error => {
+      console.error("❌ Error:", error);
+      botBubble.textContent = "❌ Error talking to the bot.";
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
