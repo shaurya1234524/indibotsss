@@ -296,7 +296,7 @@ def generate_openrouter_answer(project_id, user_question):
     except Exception as e:
         print("DEBUG parse error:", str(e))
         return "Sorry, I couldn't fetch a response from the AI."
-
+@csrf_exempt
 def ask_bot(request, project_id):
     if request.method == 'POST':
         question = request.POST.get('question')
