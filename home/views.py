@@ -263,12 +263,13 @@ Answer:"""
 import requests
 from .models import Project
 
-from django.views.decorators.csrf import csrf_exempt
-
-@csrf_exempt
+]
 import tanish.settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def generate_openrouter_answer(project_id, user_question):
     project = Project.objects.get(pk=project_id)
     prompt = build_context_prompt(project, user_question)
@@ -302,10 +303,16 @@ def generate_openrouter_answer(project_id, user_question):
 @csrf_exempt
 def ask_bot(request, project_id):
     if request.method == 'POST':
-        question = request.POST.get('question')
-        answer = generate_openrouter_answer(project_id, question)
-        return JsonResponse({'answer': answer})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+        try:
+            question = request.POST.get('question')
+            answer = generate_openrouter_answer(project_id, question)
+            return JsonResponse({'answer': answer})
+        except Exception as e:
+            import traceback
+            print("ERROR in ask_bot:", str(e))
+            traceback.print_exc()
+            return JsonResponse({'error': 'Internal server error'}, status=500)
+
 
 
 @login_required
