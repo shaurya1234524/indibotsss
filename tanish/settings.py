@@ -27,7 +27,7 @@ import environ
 import dj_database_url
 from dotenv import load_dotenv
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 load_dotenv()
 env = environ.Env()
 environ.Env.read_env()
