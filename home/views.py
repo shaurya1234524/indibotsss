@@ -18,21 +18,21 @@ from .forms import ProjectForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Project
 from .forms import ProjectForm
+
 @login_required
 def create_project_view(request):
     # Check if user already has a project
     existing_project = Project.objects.filter(user=request.user).first()
-    
+
     # If project exists, redirect to the edit page
     if existing_project:
         return redirect('edit_project', pk=existing_project.pk)
 
-    # Otherwise allow creation
     if request.method == 'POST':
         form = ProjectForm(request.POST)
         if form.is_valid():
             project = form.save(commit=False)
-            project.user = request.user
+            project.user = request.user  # Ensure project belongs to logged-in user
             project.save()
             return redirect('edit_project', pk=project.pk)
     else:
@@ -42,18 +42,21 @@ def create_project_view(request):
         'form': form
     })
 
-from django.forms import modelformset_factory
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Project, QuestionAnswer
-from .forms import QuestionAnswerForm
 
 @login_required
 def edit_project_view(request, pk):
-    project = get_object_or_404(Project, pk=pk, user=request.user)
+    # Safely fetch the project for the current user
+    try:
+        project = Project.objects.get(pk=pk, user=request.user)
+    except Project.DoesNotExist:
+        return redirect('create_project')  # Graceful fallback
+
+    # Setup the formset for QuestionAnswer linked to this project
     QAFormSet = modelformset_factory(
-        QuestionAnswer, form=QuestionAnswerForm,
-        extra=1, can_delete=True
+        QuestionAnswer,
+        form=QuestionAnswerForm,
+        extra=1,
+        can_delete=True
     )
 
     if request.method == 'POST':
@@ -73,6 +76,7 @@ def edit_project_view(request, pk):
         'project': project,
         'formset': formset,
     })
+
 @login_required
 def dashboard(request):
     return render(request,"dashboard.html")
