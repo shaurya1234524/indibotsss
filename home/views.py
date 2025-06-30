@@ -263,7 +263,9 @@ Answer:"""
 import requests
 from .models import Project
 
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 import tanish.settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -296,7 +298,6 @@ def generate_openrouter_answer(project_id, user_question):
     except Exception as e:
         print("DEBUG parse error:", str(e))
         return "Sorry, I couldn't fetch a response from the AI."
-from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def ask_bot(request, project_id):
