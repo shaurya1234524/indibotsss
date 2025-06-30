@@ -1,7 +1,7 @@
 from django.shortcuts import render
 def home(request):
     return render(request,'home.html')
-
+from django.conf import settings
 # Create your views here.
 # projects/views.py
 from django.shortcuts import render, redirect, get_object_or_404
@@ -264,12 +264,12 @@ import requests
 from .models import Project
 
 
-from django.conf import settings
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt
+
+from django.conf import settings
 def generate_openrouter_answer(project_id, user_question):
     project = Project.objects.get(pk=project_id)
     prompt = build_context_prompt(project, user_question)
