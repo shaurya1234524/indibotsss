@@ -128,6 +128,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+import os
+openrouterkey=os.getenv('openrouter')
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -145,7 +147,6 @@ aa='tatti'
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-openrouterkey=os.getenv('openrouter')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -162,5 +163,5 @@ EMAIL_HOST_USER = 'shaurya2312046@akgec.ac.in'        # your Gmail
 EMAIL_HOST_PASSWORD = 'brjx vduu cubr bupz'       # not your Gmail password!
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'
-import os
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
