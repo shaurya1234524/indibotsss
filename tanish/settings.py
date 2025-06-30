@@ -129,7 +129,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 import os
-openrouterkey=os.getenv('openrouter')
+OPENROUTER_KEY = os.getenv('openrouter')
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
