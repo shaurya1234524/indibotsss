@@ -1,39 +1,128 @@
 {% extends "home.html" %}
- {% block title %}{{ project.name }} | Embedded Chatbot{% endblock title %} 
-{% block style %}{% endblock style %}
+
+{% block title %}Test your chatbot{% endblock title %}
+
+{% block style %}
+  body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  .chat-container {
+    max-width: 500px;
+    margin: auto;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    height: 50vh;
+    overflow-y: auto;
+  }
+  .chat-bubble {
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+  .user {
+    background: #007bff;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  .bot {
+    background: #e4e4e4;
+    color: #000;
+    align-self: flex-start;
+  }
+  .chat-box {
+    display: flex; 
+    flex-direction: column;
+  }
+  form {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  button {
+    padding: 0.75rem 1.25rem;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0056b3;
+  }
+{% endblock style %}
+
 {% block body %}
-<div id="chat-container">
-  <div id="messages"></div>
-  <div id="input-area">
-    <input type="text" id="user-input" placeholder="Type your question...">
-    <button onclick="sendMessage()">Send</button>
-  </div>
+
+<h2 style="text-align:center;">Test your chatbot by asking questions you have saved</h2>
+
+<!-- Debug Info -->
+<p style="color: red; text-align: center;">Project ID: {{ project.id }} | Bot Key: {{ project.bot_key }}</p>
+
+<div class="chat-container" id="chat">
+  <div class="chat-box" id="chat-box"></div>
 </div>
 
+<form id="chat-form">
+  {% csrf_token %}
+  <input type="text" id="chat-input" placeholder="Ask a question..." required>
+  <button type="submit">Send</button>
+</form>
+
 <script>
-function sendMessage() {
-  const input = document.getElementById("user-input");
-  const message = input.value;
-  if (!message) return;
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const chatBox = document.getElementById('chat-box');
 
-  const messages = document.getElementById("messages");
-  messages.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
-  input.value = ""
+  chatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
 
-  fetch("/ask_bot/{{ project.id }}/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: "question=" + encodeURIComponent(message)
-  })
-  .then(res => res.json())
-  .then(data => {
-    messages.innerHTML += `<div><strong>Bot:</strong> ${data.answer}</div>`;
-    messages.scrollTop = messages.scrollHeight;
+    // Add user message
+    const userBubble = document.createElement('div');
+    userBubble.className = 'chat-bubble user';
+    userBubble.textContent = message;
+    chatBox.appendChild(userBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    chatInput.value = '';
+
+    // DEBUG
+    console.log("Sending message:", message);
+    console.log("POST to: {% url 'ask_bot' project.id %}");
+
+    // Send to backend
+    fetch("{% url 'ask_bot' project.id %}", {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({ question: message })
+    })
+    .then(res => res.json())
+    .then(data => {
+      const botBubble = document.createElement('div');
+      botBubble.className = 'chat-bubble bot';
+      botBubble.textContent = data.answer;
+      chatBox.appendChild(botBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    })
+    .catch(err => {
+      console.error("Chat error:", err);
+    });
   });
-}
 </script>
-</body>
-</html>
 
-  </div>
-</body>
+{% endblock body %}
