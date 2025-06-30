@@ -19,13 +19,14 @@
       box-sizing: border-box;
     }
     .chat-box {
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding-bottom: 0.5rem;
-    }
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 5rem; /* 👈 Prevent overlap with floating icon */
+}
+
     .chat-bubble {
       padding: 0.75rem 1rem;
       border-radius: 12px;
@@ -64,6 +65,12 @@
     button:hover {
       background: #0056b3;
     }
+    @media (max-width: 768px) {
+  .chat-box {
+    padding-bottom: 6rem; /* More padding for mobile */
+  }
+}
+
   </style>
 </head>
 <body>
