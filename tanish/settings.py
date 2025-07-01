@@ -25,10 +25,10 @@ SECRET_KEY = 'django-insecure-+x#5bwc)vftampj*x#@_keq@b80d0$7lxvzo*=sop^$6gk^)f3
 import os
 import environ
 import dj_database_url
-from dotenv import load_dotenv
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-load_dotenv()
+
 env = environ.Env()
 environ.Env.read_env()
 
