@@ -81,6 +81,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://aisearchlibrary.in",  # Optional but recommended
 ]
 
+
 CORS_ALLOWED_ORIGINS = [
     "https://www.aisearchlibrary.in",
 ]
