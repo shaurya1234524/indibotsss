@@ -27,7 +27,7 @@ import environ
 import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 env = environ.Env()
 environ.Env.read_env()
