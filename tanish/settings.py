@@ -76,6 +76,11 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.aisearchlibrary.in",
+    "https://aisearchlibrary.in",  # Optional but recommended
+]
+
 CORS_ALLOWED_ORIGINS = [
     "https://www.aisearchlibrary.in",
 ]
