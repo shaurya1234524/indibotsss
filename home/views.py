@@ -277,7 +277,7 @@ def generate_openrouter_answer(project_id, user_question):
     headers = {
         "Authorization": f"Bearer {settings.OPENROUTER_KEY}",
 
-        "Referer": "https://aisearchlibrary.in",
+        "Referer": "https://www.aisearchlibrary.in",
         "X-Title": "Project Chatbot",
         "Content-Type": "application/json"
     }
