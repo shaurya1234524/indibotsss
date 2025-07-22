@@ -28,7 +28,8 @@ urlpatterns = [
      path('create/', views.create_project_view, name='create_project'),
 # urls.py
 path('project/<int:pk>/edit/', views.edit_project_view, name='edit_project'),
-
+    path('services/', views.services, name='services'),
+    path('features/', views.features, name='features'),
     path('signup/', views.signup_view, name='signup'),
     path('verify/', views.verify_otp_view, name='verify_otp'),
     path('login/', views.login_view, name='login'),
