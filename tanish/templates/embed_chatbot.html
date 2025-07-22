@@ -6,9 +6,10 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
     }
+
     .chat-container {
       height: 100vh;
       display: flex;
@@ -16,37 +17,54 @@
       padding: 1rem;
       box-sizing: border-box;
     }
+
     .chat-box {
       flex-grow: 1;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      scroll-behavior: smooth;
+      padding-bottom: 1rem;
     }
+
     .chat-bubble {
       margin: 0.5rem;
       padding: 0.75rem 1rem;
-      border-radius: 10px;
+      border-radius: 18px;
       max-width: 75%;
+      position: relative;
+      line-height: 1.5;
+      animation: fadeIn 0.3s ease-in-out;
     }
+
     .user {
       background: #007bff;
       color: white;
       align-self: flex-end;
+      border-bottom-right-radius: 2px;
     }
+
     .bot {
       background: #e4e4e4;
+      color: #111;
       align-self: flex-start;
+      border-bottom-left-radius: 2px;
     }
+
     form {
       display: flex;
       gap: 0.5rem;
       margin-top: 1rem;
     }
+
     input[type="text"] {
       flex: 1;
       padding: 0.75rem;
       font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
+
     button {
       padding: 0.75rem 1.25rem;
       background: #007bff;
@@ -54,6 +72,40 @@
       color: white;
       border-radius: 6px;
       cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .typing {
+      width: 50px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem;
+      align-self: flex-start;
+    }
+
+    .typing span {
+      width: 8px;
+      height: 8px;
+      background-color: #aaa;
+      border-radius: 50%;
+      animation: blink 1.4s infinite;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0.3; }
+      40% { opacity: 1; }
     }
   </style>
 </head>
@@ -72,18 +124,45 @@
     const chatInput = document.getElementById('chat-input');
     const chatBox = document.getElementById('chat-box');
 
-    chatForm.addEventListener('submit', function(e) {
+    function scrollToBottom() {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function createTypingDots() {
+      const dots = document.createElement('div');
+      dots.className = 'typing';
+      dots.innerHTML = '<span></span><span></span><span></span>';
+      return dots;
+    }
+
+    function typeText(element, text, speed = 20) {
+      let index = 0;
+      const interval = setInterval(() => {
+        element.textContent += text[index++];
+        scrollToBottom();
+        if (index >= text.length) clearInterval(interval);
+      }, speed);
+    }
+
+    chatForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const message = chatInput.value.trim();
       if (!message) return;
 
+      // Add user message
       const userBubble = document.createElement('div');
       userBubble.className = 'chat-bubble user';
       userBubble.textContent = message;
       chatBox.appendChild(userBubble);
-      chatBox.scrollTop = chatBox.scrollHeight;
+      scrollToBottom();
       chatInput.value = '';
 
+      // Add typing dots for bot
+      const typingDots = createTypingDots();
+      chatBox.appendChild(typingDots);
+      scrollToBottom();
+
+      // Fetch bot reply
       fetch("{% url 'ask_bot' project.id %}", {
         method: 'POST',
         headers: {
@@ -94,14 +173,23 @@
       })
       .then(res => res.json())
       .then(data => {
+        // Remove typing dots
+        chatBox.removeChild(typingDots);
+
+        // Add bot bubble with typing animation
         const botBubble = document.createElement('div');
         botBubble.className = 'chat-bubble bot';
-        botBubble.textContent = data.answer;
         chatBox.appendChild(botBubble);
-        chatBox.scrollTop = chatBox.scrollHeight;
+        typeText(botBubble, data.answer);
       })
       .catch(err => {
         console.error("Chat error:", err);
+        chatBox.removeChild(typingDots);
+        const errorBubble = document.createElement('div');
+        errorBubble.className = 'chat-bubble bot';
+        errorBubble.textContent = "Something went wrong. Please try again.";
+        chatBox.appendChild(errorBubble);
+        scrollToBottom();
       });
     });
   </script>
