@@ -18,7 +18,10 @@ from .forms import ProjectForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Project
 from .forms import ProjectForm
-
+def features(request):
+    return render(request,"features.html")
+def services(request):
+    return render(request,"services.html")
 @login_required
 def create_project_view(request):
     # Check if user already has a project
