@@ -104,7 +104,7 @@ TEMPLATES = [
 ]
 
 
-AWS_STORAGE_BUCKET_NAME ='shaurya-bucket-5763394'
+AWS_STORAGE_BUCKET_NAME ='shauryabaycket345321'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 WSGI_APPLICATION = 'tanish.wsgi.application'
