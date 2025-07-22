@@ -167,7 +167,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'indibots0@gmail.com'        # your Gmail
-EMAIL_HOST_PASSWORD = 'diuk qefe worq dzer'       # not your Gmail password!
+EMAIL_HOST_PASSWORD = 'kmhb opqn soij voov'       # not your Gmail password!
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 LOGIN_URL = '/login/'
 
