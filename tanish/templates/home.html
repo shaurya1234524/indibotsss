@@ -1,319 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL6Q084F8E"></script>
-  <script>
+  <!-- Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VL6Q084F8E"></script>
+  <script defer>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-VL6Q084F8E');
   </script>
-  
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}Embed a AI Chatbot to Your Website for Free 2025{% endblock title %}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Basic SEO -->
-  <meta name="description" content="Indibots helps you create and embed AI chatbots into your website in minutes  for free in 2025. Start a project, customize Q&A, and embed with one script.">
-  <meta name="keywords" content="AI chatbot, embed chatbot, website bot, chatbot builder, chatbot for website, no code chatbot,ai bot for website,website chatbot ,chatbot for website,integrate chatbot to website.">
+  <meta name="description" content="Indibots helps you create and embed AI chatbots into your website in minutes for free in 2025. Start a project, customize Q&A, and embed with one script.">
+  <meta name="keywords" content="AI chatbot, embed chatbot, website bot, chatbot builder, chatbot for website, no code chatbot, ai bot for website, website chatbot, integrate chatbot to website">
   <meta name="author" content="Indibots Team">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Embed a Chatbot to Your Website for Free 2025">
   <meta property="og:description" content="Create and embed a custom AI chatbot into your website. Manage questions and answers, test your bot, and add it to your site easily.">
   <meta property="og:image" content="https://shaurya-bucket-5763394.s3.eu-north-1.amazonaws.com/download+(1).jpg">
   <meta property="og:url" content="https://www.aisearchlibrary.in">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Embed a Chatbot to Your Website for Free 2025">
   <meta name="twitter:description" content="Easily create and embed an AI chatbot in your website. Just a few clicks and your bot is live.">
   <meta name="twitter:image" content="https://shaurya-bucket-5763394.s3.eu-north-1.amazonaws.com/download+(1).jpg">
-  <meta name="twitter:site" content="@yourTwitterHandle">
 
-  <!-- Mobile & App -->
-  <meta name="theme-color" content="#0a84ff">
+  <!-- Favicon -->
   <link rel="icon" href="https://shaurya-bucket-5763394.s3.eu-north-1.amazonaws.com/download+(1).jpg" type="image/x-icon">
   <link rel="canonical" href="https://www.aisearchlibrary.in/" />
 
   <style>
-    :root {
-      --primary: rgb(12, 12, 12);
-      --secondary: #1c1c1e;
-      --accent: #f5f5f7;
-      --white: #ffffff;
-      --dark-gray: #3a3a3c;
-      --shadow: rgba(0, 0, 0, 0.1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--accent);
-      color: var(--secondary);
-      line-height: 1.6;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    nav {
-      background-color: var(--white);
-      box-shadow: 0 2px 6px var(--shadow);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      animation: slideDown 0.6s ease-in-out;
-      position: relative;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark-gray);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: var(--dark-gray);
-      margin: 4px 0;
-      transition: 0.3s;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--white);
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 2rem;
-        display: none;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-    }
-
-    .hero {
-      padding: 6rem 2rem;
-      background: linear-gradient(to right, #e0f0ff, #f8fbff);
-      text-align: center;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--dark-gray);
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .hero img {
-      width: 300px;
-      margin-top: 2rem;
-      animation: float 3s ease-in-out infinite, fadeIn 1.8s ease-in-out;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    .start-btn {
-      background-color: var(--primary);
-      color: white;
-      font-size: 1.2rem;
-      padding: 0.75rem 2rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s, transform 0.3s;
-      animation: fadeIn 1.4s ease-in-out;
-    }
-
-    .start-btn:hover {
-      background-color: #0069d9;
-      transform: translateY(-2px);
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      animation: fadeIn 1.6s ease-in-out;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .code-block {
-      background: #1e1e1e;
-      color: #dcdcdc;
-      padding: 1.5rem;
-      border-radius: 10px;
-      font-family: monospace;
-      overflow-x: auto;
-      margin-top: 1rem;
-      animation: fadeIn 1.8s ease-in-out;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: var(--white);
-      border-top: 1px solid #eee;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    #loader-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #loader {
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #0a84ff; /* Accent color */
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    {% block style %} {% endblock style %}
+    :root{--primary:#0c0c0c;--secondary:#1c1c1e;--accent:#f5f5f7;--white:#fff;--dark-gray:#3a3a3c;--shadow:rgba(0,0,0,0.1);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--accent);color:var(--secondary);line-height:1.6;}
+    nav{background:var(--white);box-shadow:0 2px 6px var(--shadow);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:relative;}
+    .logo{font-size:1.8rem;font-weight:700;color:var(--primary);}
+    .nav-links{display:flex;gap:1.5rem;}
+    .nav-links a{text-decoration:none;color:var(--dark-gray);font-weight:500;transition:.3s;}
+    .nav-links a:hover{color:var(--primary);}
+    .hamburger{display:none;flex-direction:column;cursor:pointer;}
+    .hamburger div{width:25px;height:3px;background:var(--dark-gray);margin:4px 0;}
+    @media(max-width:768px){.hamburger{display:flex;}.nav-links{position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;gap:1rem;padding:1rem 2rem;display:none;}.nav-links.active{display:flex;}}
+    .hero{padding:6rem 2rem;background:linear-gradient(to right,#e0f0ff,#f8fbff);text-align:center;}
+    .hero h1{font-size:2.5rem;margin-bottom:1rem;}
+    .hero p{font-size:1.1rem;color:var(--dark-gray);max-width:700px;margin:0 auto 2rem;}
+    .start-btn{background:var(--primary);color:#fff;font-size:1.1rem;padding:.75rem 2rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:.3s;}
+    .start-btn:hover{background:#0069d9;transform:translateY(-2px);}
+    .section{padding:4rem 2rem;max-width:1100px;margin:0 auto;}
+    .section h2{text-align:center;font-size:2rem;margin-bottom:1rem;}
+    .code-block{background:#1e1e1e;color:#dcdcdc;padding:1.5rem;border-radius:10px;font-family:monospace;overflow-x:auto;margin-top:1rem;}
+    footer{background:#0a0a23;color:#fff;padding:2rem 1rem;margin-top:3rem;}
+    footer a{color:#bbb;text-decoration:none;}
+    footer a:hover{color:#fff;}
+    #loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;justify-content:center;align-items:center;}
+    #loader{border:6px solid #f3f3f3;border-top:6px solid #0a84ff;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}
+    @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
   </style>
 
-  <script>
-    function toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('active');
-    }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "IndiBots",
+    "url": "https://www.aisearchlibrary.in",
+    "image": "https://indibots.onrender.com/static/images/logo.png",
+    "author": {"@type": "Person","name": "Shaurya Singh Jadaun"},
+    "publisher": {"@type": "Organization","name": "IndiBots","logo": {"@type": "ImageObject","url": "https://indibots.onrender.com/static/images/logo.png"}},
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "IndiBots is a customizable AI chatbot platform for businesses...",
+    "keywords": "AI chatbot, SaaS chatbot, business chatbot, website embed chatbot, custom bot, GPT chatbot",
+    "sameAs": ["https://github.com/shaurya1234524","mailto:indibots0@gmail.com"]
+  }
   </script>
 </head>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "IndiBots",
-  "url": "https://www.aisearchlibrary.in",
-  "image": "https://indibots.onrender.com/static/images/logo.png",
-  "author": {
-    "@type": "Person",
-    "name": "Shaurya Singh Jadaun"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "IndiBots",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://indibots.onrender.com/static/images/logo.png"
-    }
-  },
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "description": "IndiBots is a customizable AI chatbot platform for businesses to embed smart chatbots into their websites. Offers SaaS solutions for clinics, therapists, and enterprises with bot key integration, branding, and chat history.",
-  "keywords": "AI chatbot, SaaS chatbot, business chatbot, website embed chatbot, custom bot, GPT chatbot, smart assistant, clinic chatbot",
-  "sameAs": [
-    "https://github.com/shaurya1234524",
-    "mailto:indibots0@gmail.com"
-  ]
-}
-</script>
-
 <body>
-  <div id="loader-wrapper">
-    <div id="loader"></div>
-  </div>
+  <div id="loader-wrapper"><div id="loader"></div></div>
 
   <nav>
     <div class="logo">Indibots</div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="{%url 'features'%}">Features</a>
       <a href="{%url 'services'%}">Services</a>
       <a href="/">Blogs</a>
-      {% if project %}
-        <a href="{% url 'chatbot' project.id %}">Test Your Bot</a>
-      {% endif %}
-      {% comment %} <a href="{% url 'home' %}">Embed</a> {% endcomment %}
+      {% if project %}<a href="{% url 'chatbot' project.id %}">Test Your Bot</a>{% endif %}
       {% if user.is_authenticated %}
-        <span style="margin-right: 1rem;"> Hi, {{ user.username }}</span>
+        <span style="margin-right:1rem;">Hi, {{ user.username }}</span>
         <a href="{% url 'logout' %}">Logout</a>
       {% else %}
         <a href="{% url 'login' %}">Login</a>
@@ -322,28 +109,23 @@
     </div>
   </nav>
 
-  {% block body %}
   <section class="hero">
- <h1>Free no cost embed AI Chatbot on Your Website</h1>
-    <p>Launch intelligent chatbots for your users in minutes. Copy the script and add it to your site. Watch the magic unfold.Completely Free Plugin and Play chatbot embed in your website</p>
+    <h1>Free no cost embed AI Chatbot on Your Website</h1>
+    <p>Launch intelligent chatbots in minutes. Copy the script, add it to your site, and watch the magic unfold.</p>
     <a href="{% url 'dashboard' %}" class="start-btn">Start Project</a>
   </section>
 
   <section class="section embed-guide">
-    <h2>How to Embed Free AI Chatbot ?</h2>
-<div style="text-align: center; margin: 2rem 0;">
-  <iframe width="100%" height="400" 
-    src="https://www.youtube.com/embed/TJQrk1kuQes" 
-    title="How to Embed AI Chatbot" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen 
-    style="max-width: 800px;">
-  </iframe>
-</div>
-
-  
-  {% endblock body %}
+    <h2>How to Embed Free AI Chatbot?</h2>
+    <div class="youtube-wrapper" style="position:relative;max-width:800px;margin:2rem auto;cursor:pointer;">
+      <img src="https://img.youtube.com/vi/TJQrk1kuQes/hqdefault.jpg" 
+           alt="How to Embed AI Chatbot" 
+           style="width:100%;border-radius:10px;" loading="lazy">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                  background:#000a;padding:1rem 1.5rem;border-radius:50%;color:white;font-size:2rem;">▶</div>
+    </div>
+  </section>
+{% endblock body%}
 <section class="section services">
   <h2>Our Services</h2>
   <p style="text-align: center; color: var(--dark-gray); max-width: 800px; margin: 0 auto 2rem;">
@@ -406,72 +188,40 @@
 </section>
 
   <footer>
-    {% block footer %}
-    <footer style="background:#0a0a23; color:white; padding:2rem 1rem; margin-top:3rem;">
-      <div style="max-width:1100px; margin:auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
-        <div style="flex:1 1 200px; margin-bottom:1rem;">
-          <h3 style="color:#00bfff;">Indibots</h3>
-          <p>Build and embed smart AI chatbots for your website in minutes.No coding required just copy paste code.</p>
-        </div>
-
-        <div style="flex:1 1 150px; margin-bottom:1rem;">
-          <h4>Quick Links</h4>
-          <ul style="list-style:none; padding:0;">
-            <li><a href="{% url 'home' %}" style="color:#bbb; text-decoration:none;"> Home</a></li>
-            <li><a href="{% url 'features' %}" style="color:#bbb; text-decoration:none;">Features</a></li>
-            <li><a href="{% url 'services' %}" style="color:#bbb; text-decoration:none;"> Services</a></li>
-            <li><a href="{% url 'home' %}" style="color:#bbb; text-decoration:none;"> Blogs</a></li>
-            
-            <li><a href="mailto:shaurya2312046@akgec.ac.in" style="color:#bbb; text-decoration:none;"> Email Us</a></li>
-          </ul>
-        </div>
-
-        <div style="flex:1 1 250px; margin-bottom:1rem;">
-          <h4>Connect</h4>
-          <p>Email: <a href="mailto:indibots0@gmail.com" style="color:#bbb;">indibots0@gmail.com</a></p>
-          <p>Follow us: 
-            <a href="https://www.linkedin.com/company/107871038/admin/dashboard/" style="color:#0e76a8;">LinkedIn</a>
-          </p>
-        </div>
+    <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;">
+      <div style="flex:1 1 200px;margin-bottom:1rem;">
+        <h3 style="color:#00bfff;">Indibots</h3>
+        <p>Build and embed smart AI chatbots for your website in minutes.</p>
       </div>
-      <div style="text-align:center; padding-top:1rem; font-size:0.9rem; color:#aaa;">
-        © {{ now.year }} Indibots. All rights reserved.
+      <div style="flex:1 1 150px;margin-bottom:1rem;">
+        <h4>Quick Links</h4>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'features' %}">Features</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'home' %}">Blogs</a></li>
+          <li><a href="mailto:shaurya2312046@akgec.ac.in">Email Us</a></li>
+        </ul>
       </div>
-    </footer>
-    {% endblock %}
+      <div style="flex:1 1 250px;margin-bottom:1rem;">
+        <h4>Connect</h4>
+        <p>Email: <a href="mailto:indibots0@gmail.com">indibots0@gmail.com</a></p>
+        <p>Follow us: <a href="https://www.linkedin.com/company/107871038/admin/dashboard/" style="color:#0e76a8;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div style="text-align:center;padding-top:1rem;font-size:0.9rem;color:#aaa;">
+      © {{ now.year }} Indibots. All rights reserved.
+    </div>
   </footer>
 
-  <script>
-    window.addEventListener("load", function () {
-      const loaderWrapper = document.getElementById("loader-wrapper");
-      loaderWrapper.style.display = "none";
+  <script defer>
+    function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active');}
+    window.addEventListener("load",()=>{document.getElementById("loader-wrapper").style.display="none";});
+    document.querySelector('.youtube-wrapper').addEventListener('click',function(){
+      this.innerHTML=`<iframe width="100%" height="400" src="https://www.youtube.com/embed/TJQrk1kuQes?autoplay=1" 
+        title="How to Embed AI Chatbot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen></iframe>`;
     });
   </script>
-<script>
-  function submitComment(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const comment = document.getElementById('comment').value.trim();
-    const imageUrl = document.getElementById('userimage').value.trim() || 'https://i.pravatar.cc/60?u=' + username;
-
-    if (username && comment) {
-      const commentList = document.getElementById('comment-list');
-      const newComment = document.createElement('div');
-      newComment.style = "display:flex; gap:1rem; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 1rem;";
-      newComment.innerHTML = `
-        <img src="${imageUrl}" alt="${username}" style="width:60px; height:60px; border-radius:50%;">
-        <div>
-          <strong>${username}</strong>
-          <p style="margin: 0.3rem 0;">${comment}</p>
-        </div>
-      `;
-      commentList.prepend(newComment);
-
-      // Reset the form
-      document.getElementById('comment-form').reset();
-    }
-  }
-</script>
-
 </body>
 </html>
