@@ -126,6 +126,96 @@
     </div>
   </section>
 {% endblock body %}
+    <section class="aisl-info-section">
+  <div class="aisl-info-container">
+    
+    <!-- Text Side -->
+    <div class="aisl-info-text">
+      <h2>Why Choose AI Search Library?</h2>
+      <p>
+        AI Search Library helps businesses build intelligent chatbots and 
+        knowledge systems that improve customer experience, reduce support costs, 
+        and drive engagement. Our platform combines generative AI with 
+        easy-to-use tools so anyone can create powerful assistants—no coding required.
+      </p>
+      <ul>
+        <li>✅ 14-day free trial with no credit card</li>
+        <li>✅ Easy integration with websites</li>
+        <li>✅ AI-powered responses with continuous learning</li>
+      </ul>
+      <a href="/signup" class="aisl-info-btn">Get Started Free</a>
+    </div>
+    
+    <!-- Image Side -->
+  
+  </div>
+</section>
+  <style>
+  .aisl-info-section {
+    background: #f9fafb;
+    padding: 4rem 1rem;
+  }
+  .aisl-info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .aisl-info-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .aisl-info-text {
+    flex: 1;
+    color: #111;
+  }
+  .aisl-info-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .aisl-info-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .aisl-info-text ul {
+    margin-bottom: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+  .aisl-info-text ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .aisl-info-btn {
+    display: inline-block;
+    background: #4f46e5;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .aisl-info-btn:hover {
+    background: #4338ca;
+  }
+  .aisl-info-image {
+    flex: 1;
+    text-align: center;
+  }
+  .aisl-info-image img {
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+</style>
+
 <section class="section services">
   <h2>Our Services</h2>
   <p style="text-align: center; color: var(--dark-gray); max-width: 800px; margin: 0 auto 2rem;">
@@ -186,7 +276,224 @@
 
   
 </section>
+<style>
 
+    .faq-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+    .faq-section h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .faq-item {
+      background: #fff;
+      color: #111;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    .faq-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .faq-question {
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      padding: 0;
+    }
+    .faq-answer {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .faq-answer.show {
+      display: block;
+    }
+    .faq-item a {
+      color: #4f46e5; /* indigo */
+      text-decoration: none;
+    }
+    .faq-item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <section class="faq-section">
+    <h2 id="faq">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      
+      <!-- FAQ List Start -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can I test ChatBot for free? <span>+</span>
+        </button>
+        <p class="faq-answer">Yes! <a href="https://accounts.chatbot.com/signup">Create your account</a> to start a 14-day free trial.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Does installing ChatBot on a website require coding? <span>+</span>
+        </button>
+        <p class="faq-answer">No, just copy and paste a snippet or use <a href="#">WordPress</a>/<a href="#">Shopify</a> integration.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Are technical skills required to create an advanced chatbot? <span>+</span>
+        </button>
+        <p class="faq-answer">No, provide your website URL or knowledge base, then use the drag-and-drop editor to fine-tune.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What is a generative AI chatbot? <span>+</span>
+        </button>
+        <p class="faq-answer">It’s a chatbot that generates human-like responses in real-time, unlike rule-based bots.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How can AI chatbots improve customer service? <span>+</span>
+        </button>
+        <p class="faq-answer">They provide instant, automated responses, reduce wait times, and escalate issues when needed.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do AI chatbots benefit customer support? <span>+</span>
+        </button>
+        <p class="faq-answer">They automate responses to common queries, like order tracking, and provide 24/7 support.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What is the most advanced AI chatbot for customer service? <span>+</span>
+        </button>
+        <p class="faq-answer">Advanced bots use generative AI + NLP, understand complex queries, and integrate with platforms.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What is the best AI chatbot for customer service? <span>+</span>
+        </button>
+        <p class="faq-answer">The best chatbot depends on your needs. Many offer AI chat + workflows. Try the <a href="#">ChatBot app</a> free trial.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What role do chatbots play in sales processes? <span>+</span>
+        </button>
+        <p class="faq-answer">They qualify leads, pass data to CRM, schedule meetings, and ensure sales opportunities aren’t missed.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do chatbots assist in qualifying and converting leads? <span>+</span>
+        </button>
+        <p class="faq-answer">They ask targeted questions, transfer to reps, and allow direct purchases or bookings in chat.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can ChatBot be integrated with LiveChat? <span>+</span>
+        </button>
+        <p class="faq-answer">Yes, integration is seamless. See <a href="#">LiveChat installation guide</a>.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Can one chatbot be connected with multiple channels? <span>+</span>
+        </button>
+        <p class="faq-answer">Yes! One bot can connect to websites, Shopify, Slack, Facebook Messenger, and more.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What is a chatbot? <span>+</span>
+        </button>
+        <p class="faq-answer">A chatbot simulates human conversation using AI + NLP to answer queries and assist users.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How does a generative AI chatbot work? <span>+</span>
+        </button>
+        <p class="faq-answer">It uses NLP to understand intent and ML to improve over time, generating personalized answers.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          I've made changes to my bot but old version shows. What's happening? <span>+</span>
+        </button>
+        <p class="faq-answer">You must click “Publish” in the dashboard for changes to appear in the widget.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do AI chatbots handle customer interactions? <span>+</span>
+        </button>
+        <p class="faq-answer">They provide real-time, context-aware support, resolve issues, and improve CX through personalization.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What are AI-powered customer service bots? <span>+</span>
+        </button>
+        <p class="faq-answer">They are automated AI systems that work 24/7, provide quick responses, and adapt to new queries.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How do chatbots contribute to marketing efforts? <span>+</span>
+        </button>
+        <p class="faq-answer">They collect leads, engage users on landing pages, guide buyers, and boost conversions.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How can chatbots help in engaging potential customers? <span>+</span>
+        </button>
+        <p class="faq-answer">By initiating conversations at the right time, they turn visitors into leads and increase sales.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          How can I configure my ChatBot to obtain user consent or add a Privacy Policy? <span>+</span>
+        </button>
+        <p class="faq-answer">You can add consent mechanisms, links to your Privacy Policy, and compliance settings. See <a href="#">the tutorial</a>.</p>
+      </div>
+      <!-- FAQ List End -->
+
+    </div>
+  </section>
+
+  <script>
+    function toggleFAQ(el) {
+      const answer = el.nextElementSibling;
+      answer.classList.toggle("show");
+    }
+  </script>
   <footer>
     <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;">
       <div style="flex:1 1 200px;margin-bottom:1rem;">
@@ -225,4 +532,5 @@
   </script>
 </body>
 </html>
+
 
